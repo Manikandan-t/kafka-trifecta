@@ -1,0 +1,13 @@
+# FastAPI + Uvicorn for the Kafka API
+fastapi
+uvicorn
+
+# Kafka client
+confluent-kafka
+
+# Streamlit UI
+streamlit
+requests
+
+# Cryptography for optional AES decryption
+pycryptodome
