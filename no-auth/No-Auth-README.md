@@ -30,6 +30,24 @@ This spins up:
 
 ---
 
+### 🔍 Access the Kafka container
+
+To navigate inside the Kafka Docker container:
+
+```bash
+docker exec -it kafka bash
+```
+
+### 📌 Create a Topic
+
+Create a Kafka topic named `mock_json`:
+
+```bash
+kafka-topics --create --topic mock_json --bootstrap-server localhost:9092 --partitions 1 --replication-factor 1
+```
+
+---
+
 ### 2. Set Up Python Environment
 
 Create a virtual environment and install dependencies:
@@ -124,10 +142,40 @@ curl -X POST http://localhost:5000/produce \
 
 ---
 
+## 📋 Other Commands (Execute inside a docker)
+
+### 📄 Listing Topics
+
+To list all Kafka topics:
+
+```bash
+kafka-topics --list --bootstrap-server localhost:9092
+```
+
+### ✉️ Publishing a Message to Producer
+
+To publish a message to the producer:
+
+```bash
+kafka-console-producer --topic mock_json --bootstrap-server localhost:9092
+```
+
+### 📥 Reading Messages from Consumer
+
+To read messages from the consumer:
+
+```bash
+kafka-console-consumer --topic mock_json --from-beginning --bootstrap-server localhost:9092
+```
+
+---
+
 ## 🧼 Cleanup
+
 To stop and remove Kafka containers:
 
 ```bash
 docker compose down
 ```
+
 ---

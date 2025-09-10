@@ -1,0 +1,8 @@
+fastapi
+uvicorn[standard]
+pydantic
+confluent-kafka
+
+# Streamlit UI
+streamlit
+requests
