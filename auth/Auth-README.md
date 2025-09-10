@@ -77,6 +77,13 @@ python kafka_auth.py
 - Runs on: `http://localhost:5000`
 - Handles Kafka authentication using `client.properties` or equivalent config
 
+### 📄 Including Swagger Docs Access
+
+FastAPI provides automatic API documentation at:
+
+- **Swagger UI**: `http://localhost:5000/docs`
+- **ReDoc**: `http://localhost:5000/redoc`
+
 ### 🔸 Start Streamlit UI
 
 ```bash

@@ -74,6 +74,14 @@ python fastapi_kafka.py
   - `POST /produce` → Send a message to Kafka
   - `GET /consume` → Read messages from Kafka
 
+### 📄 Including Swagger Docs Access
+
+FastAPI provides automatic API documentation at:
+
+- **Swagger UI**: `http://localhost:5000/docs`
+- **ReDoc**: `http://localhost:5000/redoc`
+
+
 ### 🔸 Start Streamlit UI
 
 ```bash
