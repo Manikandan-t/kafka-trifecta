@@ -23,9 +23,9 @@ Kafka uses **Zookeeper** to manage:
 
 This repository demonstrates how to set up and run Kafka locally with three different security configurations:
 
-1. **No Authentication**
-2. **Username/Password Authentication (SASL/PLAIN)**
-3. **SASL_SSL Authentication with Certificates**
+1. **No Authentication**  - [No-Auth-README.md](no-auth/No-Auth-README.md)
+2. **Username/Password Authentication (SASL/PLAIN)** - [Auth-README.md](auth/Auth-README.md)
+3. **SASL_SSL Authentication with Certificates** - [SSL-Auth-README.md](sasl_ssl_auth/SSL-Auth-README.md)
 
 Each setup includes:
 - Docker Compose files for Kafka + Zookeeper
@@ -37,30 +37,47 @@ Each setup includes:
 ## 📂 Directory Structure
 
 ```plaintext
+
 ├── auth
-│   ├── client-ui
-│   │   └── kafka_ui.py
-│   ├── config
-│   │   ├── client.properties
-│   │   └── kafka_server_jaas.conf
-│   ├── Auth-README.md
-│   ├── docker-compose.yml
-│   ├── kafka_auth.py
-│   └── requirements.txt
+│ ├── Auth-README.md
+│ ├── client-ui
+│ │ └── kafka_ui.py
+│ ├── config
+│ │ ├── client.properties
+│ │ └── kafka_server_jaas.conf
+│ ├── docker-compose.yml
+│ ├── kafka_auth.py
+│ └── requirements.txt
 │
 ├── no-auth
-│   ├── client-ui
-│   │   └── kafka_ui.py
-│   ├── docker-compose.yml
-│   ├── kafka_no_auth.py
-│   ├── No-Auth-README.md
-│   └── requirements.txt
+│ ├── client-ui
+│ │ └── kafka_ui.py
+│ ├── docker-compose.yml
+│ ├── kafka_no_auth.py
+│ ├── No-Auth-README.md
+│ └── requirements.txt
 │
-├── sasl-ssl-auth
-│   ├── script.sh
-│   ├── docker-compose.yml
-│   ├── kafka_ssl.py
-│   └── client-ui
-│       ├── kafka_streamlit_app.py
-│       └── requirements.txt
-└── README.md
+├── README.md
+│
+└── sasl_ssl_auth
+    ├── cert
+    │ ├── ca-cert.pem
+    │ ├── kafka.p12
+    │ ├── keystore
+    │ │ └── kafka.keystore.jks
+    │ ├── script.sh
+    │ └── truststore
+    │     ├── ca-key
+    │     └── kafka.truststore.jks
+    ├── client-ui
+    │ ├── kafka_streamlit_app.py
+    │ └── ui_start_command.txt
+    ├── config
+    │ ├── consumer.properties
+    │ ├── kafka.env
+    │ ├── kafka_server_jaas.conf
+    │ ├── producer.properties
+    │ └── server.properties
+    ├── docker-compose.yml
+    ├── requirements.txt
+    └── SSL-Auth-README.md
