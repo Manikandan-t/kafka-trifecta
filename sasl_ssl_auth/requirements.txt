@@ -1,0 +1,4 @@
+# Streamlit UI
+streamlit
+pandas
+confluent_kafka

@@ -1,0 +1,38 @@
+services:
+  zookeeper:
+    image: bitnami/zookeeper
+    container_name: zoo1
+    ports:
+      - "2181:2181"
+    environment:
+      - ALLOW_ANONYMOUS_LOGIN=yes
+
+  kafka:
+    image: bitnami/kafka:latest
+    container_name: example.kafka.com
+    hostname: example.kafka.com
+    ports:
+      - "9092:9092"
+      - "9093:9093"
+    expose:
+      - "9093"
+    environment:
+      - ./config/kafka.env
+      - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
+    volumes:
+      - ./config/kafka_server_jaas.conf:/opt/bitnami/kafka/config/kafka_server_jaas.conf
+      - ./config/server.properties:/opt/bitnami/kafka/config/server.properties
+      - ./cert/keystore/kafka.keystore.jks:/opt/bitnami/kafka/config/certs/kafka.keystore.jks:ro
+      - ./cert/truststore/kafka.truststore.jks:/opt/bitnami/kafka/config/certs/kafka.truststore.jks:ro
+      - ./config/producer.properties:/opt/bitnami/kafka/config/producer.properties
+      - ./config/consumer.properties:/opt/bitnami/kafka/config/consumer.properties
+    links:
+      - zookeeper
+    networks:
+      - kafka
+
+networks:
+  kafka:
+    driver: bridge
+    name: kafka
+    external: true

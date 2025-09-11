@@ -1,0 +1,6 @@
+export KAFKA_BROKER="example.kafka.com:9092"
+export KAFKA_TOPIC="mock_json_topic"
+export KAFKA_SASL_USERNAME="user"
+export KAFKA_SASL_PASSWORD="bitnami"
+export KAFKA_CA_LOCATION="../cert/ca-cert.pem"
+streamlit run kafka_streamlit_app.py

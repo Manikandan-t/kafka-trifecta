@@ -1,5 +1,3 @@
-version: '2.1'
-
 services:
   zoo1:
     image: confluentinc/cp-zookeeper:7.3.2
@@ -36,5 +34,3 @@ services:
       KAFKA_ALLOW_EVERYONE_IF_NO_ACL_FOUND: "true"
     depends_on:
       - zoo1
-
-
